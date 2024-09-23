@@ -1,35 +1,43 @@
-/// # Unofficial Fly SDK
-///
-/// The Fly SDK provides an interface for interacting with the Fly.io Machines API.
-/// It allows you to manage applications, machines, volumes, and secrets on Fly.io.
-/// The SDK is designed to simplify the usage of the Fly.io API with convenient methods for common tasks.
-///
-/// ## Example
-///
-/// ```rust
-/// use fly_sdk::FlyControl;
-///
-/// let api_token = "your_api_token".to_string();
-/// let fly_control = FlyControl::new(api_token);
-///
-/// // Now you can use fly_control to manage apps, machines, secrets, and volumes
-/// ```
-/// The `FlyControl` struct is the main entry point for interacting with the Fly.io API.
-/// It encapsulates managers for applications, machines, volumes, and secrets, allowing
-/// you to manage these entities using a single unified interface.
-///
-/// # Fields
-/// - `apps`: Manages Fly.io applications.
-/// - `machines`: Manages Fly.io machines.
-/// - `volumes`: Manages Fly.io volumes.
-/// - `secrets`: Manages Fly.io secrets.
-///
-/// // Example usage: Managing apps, machines, volumes, and secrets
-/// // fly_control.apps.create_app(...);
-/// // fly_control.machines.list_machines(...);
-/// // fly_control.volumes.create_volume(...);
-/// // fly_control.secrets.set_secret(...);
-/// ```
+//! # Unofficial Fly SDK
+//!
+//! The Fly SDK provides an interface for interacting with the Fly.io Machines API.
+//! It allows you to manage applications, machines, volumes, and secrets on Fly.io.
+//! The SDK is designed to simplify the usage of the Fly.io API with convenient methods for common tasks.
+//!
+//! ## Example
+//!
+//! ```rust
+//! use fly_sdk::FlyControl;
+//!
+//! let api_token = "your_api_token".to_string();
+//! let fly_control = FlyControl::new(api_token);
+//!
+//! // Now you can use fly_control to manage apps, machines, secrets, and volumes
+//! ```
+//!
+//! The `FlyControl` struct is the main entry point for interacting with the Fly.io API.
+//! It encapsulates managers for applications, machines, volumes, and secrets, allowing
+//! you to manage these entities using a single unified interface.
+//!
+//! # Fields
+//! - `apps`: Manages Fly.io applications.
+//! - `machines`: Manages Fly.io machines.
+//! - `volumes`: Manages Fly.io volumes.
+//! - `secrets`: Manages Fly.io secrets.
+//!
+//! # Example usage
+//! - `fly_control.apps.create_app(...);`
+//! - `fly_control.machines.list_machines(...);`
+//! - `fly_control.volumes.create_volume(...);`
+//! - `fly_control.secrets.set_secret(...);`
+//!
+//! # Features
+//! This crate supports the following features:
+//! - `apps`: Enable app management.
+//! - `machines`: Enable machine management.
+//! - `volumes`: Enable volume management.
+//! - `secrets`: Enable secret management.
+//! - `full`: Enable all features.
 
 #[cfg(feature = "apps")]
 pub mod apps;
@@ -50,7 +58,7 @@ const API_BASE_URL: &str = "https://api.machines.dev/v1";
 pub struct FlyControl {
     #[cfg(feature = "apps")]
     pub apps: apps::AppManager,
-    
+
     #[cfg(feature = "machines")]
     pub machines: machines::MachineManager,
 
@@ -79,4 +87,3 @@ impl FlyControl {
         }
     }
 }
-
