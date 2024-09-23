@@ -6,7 +6,7 @@ license = "MIT"
 description = "Unofficial Fly.io SDK for Rust"
 repository = "https://github.com/alexlatif/fly-rs"
 keywords = ["sdk", "cloud", "serverless", "gpu"]
-categories = ["sdk", "cloud", "serverless", "gpu"]
+categories = ["web-programming", "virtualization"]
 documentation = "https://docs.rs/fly-rs"
 
 [features]
