@@ -15,9 +15,9 @@ async fn main() -> Result<(), Box<dyn Error>> {
     let org_slug = &args
         .get(1)
         .expect("Usage: cargo run --example apps <org_slug>");
-    
+
     let fly = FlyControl::new(api_token.to_string());
-    
+
     let app_name = "rusty-app";
     fly.apps.create(app_name, org_slug).await?;
     fly.apps.list(org_slug).await?;
