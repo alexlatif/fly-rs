@@ -1,0 +1,18 @@
+[package]
+name = "fly-sdk"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+repository = "https://github.com/alexlatif/fly-rs"
+keywords = ["sdk", "fly.io", "cloud", "serverless", "gpu"]
+categories = ["sdk", "cloud", "serverless", "gpu"]
+documentation = "https://docs.rs/fly-rs"
+
+
+[dependencies]
+reqwest = { version = "0.12.7", features = ["json"] }
+serde = { version = "1.0.210", features = ["derive"] }
+serde_json = "1.0.128"
+tokio = { version = "1.40.0", features = ["macros", "rt-multi-thread"] }
+tracing = "0.1.40"
+tracing-subscriber = { version = "0.3.18", features = ["env-filter"] }
