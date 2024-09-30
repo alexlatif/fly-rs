@@ -11,16 +11,16 @@ pub struct AppResponse {
 
 #[derive(Serialize, Deserialize, Debug)]
 struct AppsResponse {
-    total_apps: u64,
-    apps: Vec<App>,
+    pub total_apps: u64,
+    pub apps: Vec<App>,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct App {
-    id: String,
-    name: String,
-    machine_count: u64,
-    network: String,
+    pub id: String,
+    pub name: String,
+    pub machine_count: u64,
+    pub network: String,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
