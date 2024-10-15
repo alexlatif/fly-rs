@@ -410,4 +410,30 @@ impl MachineManager {
             )))
         }
     }
+
+    pub async fn get_machine(
+        &self,
+        app_name: &str,
+        machine_id: &str,
+    ) -> Result<MachineResponse, Box<dyn Error>> {
+        debug!("Fetching details for machine {}", machine_id);
+        let url = format!("{}/apps/{}/machines/{}", API_BASE_URL, app_name, machine_id);
+
+        let response = self
+            .client
+            .get(&url)
+            .bearer_auth(&self.api_token)
+            .send()
+            .await?;
+
+        if response.status().is_success() {
+            let machine_response: MachineResponse = response.json().await?;
+            Ok(machine_response)
+        } else {
+            Err(Box::new(std::io::Error::new(
+                std::io::ErrorKind::Other,
+                format!("Failed to get machine details: {:?}", response.status()),
+            )))
+        }
+    }
 }
